@@ -102,6 +102,8 @@ body {
 }
 
 .content .flashcards .flashcard {
+    display: flex;
+    align-items: center;
     margin-bottom: 16px;
     border-radius: 5px;
     padding: 22px 14px;
@@ -112,12 +114,17 @@ body {
     background: #FFFFFF;
 }
 
-.content .flashcards .question {
+.content .flashcards .flashcard--open {
     min-height: 180px;
     background-color: #FFFFD5;
 }
 
-.content .flashcards .number {
+.content .flashcards .question {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+} 
+.content .flashcards .question p {
     font-family: 'Recursive';
     font-style: normal;
     font-weight: 700;
@@ -126,8 +133,8 @@ body {
     color: #333333;
 }
 
-.content .flashcards .statement,
-.content .flashcards .answer {
+.content .flashcards .statement p,
+.content .flashcards .answer p {
     font-family: 'Recursive';
     font-style: normal;
     font-weight: 400;
@@ -229,17 +236,17 @@ body {
         margin-top: 50px;
     }
 
-    .content .flashcards .question {
+    .content .flashcards .flashcard--open {
         min-height: 130px;
     }
 
-    .content .flashcards .number {
+    .content .flashcards .question p {
         font-size: 16px;
         line-height: 19px;
     }
 
-    .content .flashcards .statement,
-    .content .flashcards .answer {
+    .content .flashcards .statement p,
+    .content .flashcards .answer p {
         font-size: 18px;
         line-height: 22px;
     }

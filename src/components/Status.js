@@ -1,5 +1,5 @@
-export default function IonIcon() {
-    const status = "effortful"
+export default function IonIcon(props) {
+    const {status} = props;
 
     switch (status) {
         case "incorrect":
@@ -12,3 +12,5 @@ export default function IonIcon() {
             return <ion-icon name="play-outline"></ion-icon>;
     }
 }
+
+// ACHO QUE SERIA BOM COLOCAR O PLAY OUTLINE SEPARADO, MAS VER DEPOIS ISSO
