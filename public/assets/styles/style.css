@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #FB6B6B;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.menu h1 {
+    font-family: 'Righteous';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 45px;
+    letter-spacing: -0.012em;
+    color: #FFFFFF;
+}
+
+.menu .logo {
+    height: 161px;
+    width: 136px;
+    margin-bottom: 12px;
+}
+
+.menu .button--begin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    border: 1px solid #D70900;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    height: 54px;
+    width: 246px;
+    background: #FFFFFF;
+}
+
+.menu .button--begin span {
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #D70900;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 48px 38px 58px;
+}
+
+.content header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content header .logo {
+    margin-right: 50px;
+    height: 100px;
+    width: 86px;
+}
+
+.content header h1 {
+    font-family: 'Righteous';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 79px;
+    letter-spacing: -0.012em;
+    color: #FFFFFF;
+    transform: rotate(0.58deg);
+}
+
+.content .flashcards {
+    margin: 0 38px;
+    margin-top: 110px;
+    width: 100%;
+}
+.content ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.content .flashcards .flashcard {
+    border-radius: 5px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 568px;
+    min-height: 66px;
+    height: 65px;
+    background: #FFFFFF;
+}
+
+.content footer {
+    position: fixed;
+    bottom: 0;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+    height: 118px;
+    width: 100%;
+    background-color: #FFFFFF;
+}
+
+@media (max-width: 676px) {
+    .content header .logo {
+        margin-right: 24px;
+        height: 60px;
+        width: 52px;
+    }
+    .content header h1 {
+        font-size: 36px;
+        line-height: 45px;
+        letter-spacing: -0.012em;
+        color: #FFFFFF;
+        transform: rotate(0.58deg);
+    }
+    .content footer {
+        height: 70px;
+    }
+}
