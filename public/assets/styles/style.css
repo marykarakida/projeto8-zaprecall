@@ -90,24 +90,115 @@ body {
 }
 
 .content .flashcards {
-    margin: 0 38px;
-    margin-top: 110px;
+    margin: 110px 38px 0;
     width: 100%;
 }
+
 .content ul {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
+
 .content .flashcards .flashcard {
+    margin-bottom: 16px;
     border-radius: 5px;
+    padding: 22px 14px;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
     width: 100%;
     max-width: 568px;
     min-height: 66px;
-    height: 65px;
     background: #FFFFFF;
+}
+
+.content .flashcards .question {
+    min-height: 180px;
+    background-color: #FFFFD5;
+}
+
+.content .flashcards .number {
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #333333;
+}
+
+.content .flashcards .statement,
+.content .flashcards .answer {
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 32px;
+    color: #333333;
+}
+
+.content .flashcards .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content .flashcards .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    border-radius: 5px;
+    min-height: 38px;
+    width: 30%;
+}
+
+.content .flashcards .button span {
+    text-align: center;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+}
+
+.content .flashcards .button--incorrect {
+    background-color: #FF3030;
+}
+
+.content .flashcards .button--effortful {
+    background-color: #FF922E;
+}
+
+.content .flashcards .button--correct {
+    background-color: #2FBE34;
+}
+
+.content .flashcards ion-icon[name="play-outline"] {
+    height: 36px;
+    width: 32px;
+}
+
+.content .flashcards ion-icon[name="close-circle"] {
+    color: #FF3030;
+}
+
+.content .flashcards ion-icon[name="help-circle"] {
+    color: #FF922E;
+}
+
+.content .flashcards ion-icon[name="checkmark-circle"] {
+    color: #2FBE34;
+}
+
+.content .flashcards ion-icon[name="close-circle"],
+.content .flashcards ion-icon[name="help-circle"],
+.content .flashcards ion-icon[name="checkmark-circle"] {
+    font-size: 35px;
+}
+
+.content .flashcards .arrow {
+    height: 32px;
+    width: 42px;
 }
 
 .content footer {
@@ -125,6 +216,7 @@ body {
         height: 60px;
         width: 52px;
     }
+
     .content header h1 {
         font-size: 36px;
         line-height: 45px;
@@ -132,6 +224,42 @@ body {
         color: #FFFFFF;
         transform: rotate(0.58deg);
     }
+
+    .content .flashcards {
+        margin-top: 50px;
+    }
+
+    .content .flashcards .question {
+        min-height: 130px;
+    }
+
+    .content .flashcards .number {
+        font-size: 16px;
+        line-height: 19px;
+    }
+
+    .content .flashcards .statement,
+    .content .flashcards .answer {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .content .flashcards ion-icon[name="play-outline"] {
+        height: 24px;
+        width: 20px;
+    }
+
+    .content .flashcards ion-icon[name="close-circle"],
+    .content .flashcards ion-icon[name="help-circle"],
+    .content .flashcards ion-icon[name="checkmark-circle"] {
+        font-size: 23px;
+    }
+
+    .content .flashcards .arrow {
+        height: 20px;
+        width: 30px;
+    }
+
     .content footer {
         height: 70px;
     }

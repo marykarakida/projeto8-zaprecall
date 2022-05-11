@@ -1,4 +1,5 @@
 import FlashCards from "./FlashCards"
+import Status from "./Status"
 
 export default function Content() {
     return (
@@ -8,7 +9,13 @@ export default function Content() {
                 <h1>ZapRecall</h1>
             </header>
             <FlashCards />
-            <footer></footer>
+            <Footer />
         </div>
+    )
+}
+
+function Footer() {
+    return (
+        <footer></footer>
     )
 }
