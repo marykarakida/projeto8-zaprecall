@@ -74,7 +74,6 @@ export default function FlashCards() {
         if (index === visibleFlashcardIndex) {
             return;
         }
-        
         const newQuestions = [...questions];
 
         if (visibleFlashcardIndex !== undefined) {
@@ -84,29 +83,40 @@ export default function FlashCards() {
 
         const question = newQuestions[index];
         question.isStatementVisible = true;
+
         setVisibleFlashcardIndex(index)
+        setQuestions(newQuestions)
+    }
+    
+    function showAnswer(event, index) {
+        const newQuestions = [...questions];
+        const question = newQuestions[index];
+        question.isStatementVisible = false;
+        question.isAnswerVisible = true;
 
         setQuestions(newQuestions)
+
+        event.stopPropagation();
     }
 
     return (
         <div className="flashcards">
             <ul>
-                {questions.map((question, index) => <Flashcard key={index} question={question} index={index} showStatement={showStatement} />)}
+                {questions.map((question, index) => <Flashcard key={index} question={question} index={index} showStatement={showStatement} showAnswer={showAnswer} />)}
             </ul>
         </div>
     )
 }
 
 function Flashcard(props) {
-    const { question, index, showStatement } = props;
+    const { question, index, showStatement, showAnswer } = props;
     const { statement, answer, isStatementVisible, isAnswerVisible, status } = question;
 
     return (
         <li onClick={() => showStatement(index)} className={`flashcard ${(isStatementVisible || isAnswerVisible) && "flashcard--open"}`}>
             {!isStatementVisible && !isAnswerVisible && <Question index={index} status={status} />}
 
-            {isStatementVisible && <Statement statement={statement} />}
+            {isStatementVisible && <Statement index={index} statement={statement} showAnswer={showAnswer} />}
 
             {isAnswerVisible && <Answer answer={answer} />}
         </li>
@@ -114,7 +124,7 @@ function Flashcard(props) {
 }
 
 function Question(props) {
-    const {index, status} = props;
+    const { index, status } = props;
 
     return (
         <div className="question">
@@ -125,18 +135,18 @@ function Question(props) {
 }
 
 function Statement(props) {
-    const {statement} = props;
+    const { index, statement, showAnswer } = props;
 
     return (
         <div className="statement">
             <p>{statement}</p>
-            <img className="arrow" src="./assets/images/setinha.png" alt=""></img>
+            <img onClick={(event) => showAnswer(event, index)} className="arrow" src="./assets/images/setinha.png" alt=""></img>
         </div>
     )
 }
 
 function Answer(props) {
-    const {answer} = props;
+    const { answer } = props;
 
     return (
         <div className="answer">
