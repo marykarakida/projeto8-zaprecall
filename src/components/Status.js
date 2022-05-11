@@ -9,7 +9,7 @@ export default function IonIcon(props) {
         case "correct":
             return <ion-icon name="checkmark-circle"></ion-icon>;
         default:
-            return <ion-icon name="play-outline"></ion-icon>;
+            return null;
     }
 }
 

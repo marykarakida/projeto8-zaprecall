@@ -46,7 +46,8 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     height: 54px;
     width: 246px;
-    background: #FFFFFF;
+    background-color: #FFFFFF;
+    cursor: pointer;
 }
 
 .menu .button--begin span {
@@ -195,6 +196,7 @@ header h1 {
     border-radius: 5px;
     min-height: 38px;
     width: 30%;
+    cursor: pointer;
 }
 
 .flashcards .button span {
@@ -224,14 +226,23 @@ header h1 {
     width: 32px;
 }
 
+.flashcards .question .incorrect,
+.flashcards .question .effortful,
+.flashcards .question .correct {
+    text-decoration: line-through;
+}
+
+.flashcards .question .incorrect,
 .flashcards ion-icon[name="close-circle"] {
     color: #FF3030;
 }
 
+.flashcards .question .effortful,
 .flashcards ion-icon[name="help-circle"] {
     color: #FF922E;
 }
 
+.flashcards .question .correct,
 .flashcards ion-icon[name="checkmark-circle"] {
     color: #2FBE34;
 }
