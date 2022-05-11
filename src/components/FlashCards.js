@@ -67,23 +67,43 @@ export default function FlashCards() {
     // DEPOIS TROCAR 0 PELA POSIÇÃO DO DECK ESCOLHIDO
     const deckEscolhido = [...decks[0].deck].sort(() => Math.random() - 0.5);
 
-    const [questions, setQuestions] = React.useState(deckEscolhido)
+    const [questions, setQuestions] = React.useState(deckEscolhido);
+    const [visibleFlashcardIndex, setVisibleFlashcardIndex] = React.useState()
+
+    function showStatement(index) {
+        if (index === visibleFlashcardIndex) {
+            return;
+        }
+        
+        const newQuestions = [...questions];
+
+        if (visibleFlashcardIndex !== undefined) {
+            const visibleFlashcard = newQuestions[visibleFlashcardIndex];
+            visibleFlashcard.isStatementVisible = false;
+        }
+
+        const question = newQuestions[index];
+        question.isStatementVisible = true;
+        setVisibleFlashcardIndex(index)
+
+        setQuestions(newQuestions)
+    }
 
     return (
         <div className="flashcards">
             <ul>
-                {questions.map((question, index) => <Flashcard key={index} question={question} index={index} />)}
+                {questions.map((question, index) => <Flashcard key={index} question={question} index={index} showStatement={showStatement} />)}
             </ul>
         </div>
     )
 }
 
 function Flashcard(props) {
-    const { question, index } = props;
+    const { question, index, showStatement } = props;
     const { statement, answer, isStatementVisible, isAnswerVisible, status } = question;
 
     return (
-        <li className={`flashcard ${(isStatementVisible || isAnswerVisible) && "flashcard--open"}`}>
+        <li onClick={() => showStatement(index)} className={`flashcard ${(isStatementVisible || isAnswerVisible) && "flashcard--open"}`}>
             {!isStatementVisible && !isAnswerVisible && <Question index={index} status={status} />}
 
             {isStatementVisible && <Statement statement={statement} />}

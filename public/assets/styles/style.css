@@ -66,19 +66,19 @@ body {
     margin: 48px 38px 58px;
 }
 
-.content header {
+header {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.content header .logo {
+header .logo {
     margin-right: 50px;
     height: 100px;
     width: 86px;
 }
 
-.content header h1 {
+header h1 {
     font-family: 'Righteous';
     font-style: normal;
     font-weight: 400;
@@ -89,19 +89,19 @@ body {
     transform: rotate(0.58deg);
 }
 
-.content .flashcards {
+.flashcards {
     margin: 110px 38px 0;
     width: 100%;
 }
 
-.content ul {
+.flashcards ul {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
 
-.content .flashcards .flashcard {
+.flashcards .flashcard {
     display: flex;
     align-items: center;
     margin-bottom: 16px;
@@ -112,19 +112,27 @@ body {
     max-width: 568px;
     min-height: 66px;
     background: #FFFFFF;
+    cursor: pointer;
 }
 
-.content .flashcards .flashcard--open {
+.flashcards p {
+    word-wrap: break-word;
+}
+
+.flashcards .flashcard--open {
+    height: auto;
     min-height: 180px;
     background-color: #FFFFD5;
+    cursor: default;
 }
 
-.content .flashcards .question {
+.flashcards .question {
     display: flex;
     justify-content: space-between;
     width: 100%;
-} 
-.content .flashcards .question p {
+}
+
+.flashcards .question p {
     font-family: 'Recursive';
     font-style: normal;
     font-weight: 700;
@@ -133,8 +141,27 @@ body {
     color: #333333;
 }
 
-.content .flashcards .statement p,
-.content .flashcards .answer p {
+.flashcards .statement {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: fit-content;
+    width: 100%;
+}
+
+.flashcards .statement .arrow {
+    align-self: flex-end;
+    height: 32px;
+    width: 42px;
+    cursor: pointer;
+}
+
+.flashcards .statement p {
+    margin-bottom: 30px;
+}
+
+.flashcards .statement p,
+.flashcards .answer p {
     font-family: 'Recursive';
     font-style: normal;
     font-weight: 400;
@@ -143,12 +170,12 @@ body {
     color: #333333;
 }
 
-.content .flashcards .buttons {
+.flashcards .buttons {
     display: flex;
     justify-content: space-between;
 }
 
-.content .flashcards .button {
+.flashcards .button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,7 +185,7 @@ body {
     width: 30%;
 }
 
-.content .flashcards .button span {
+.flashcards .button span {
     text-align: center;
     font-family: 'Recursive';
     font-style: normal;
@@ -168,47 +195,42 @@ body {
     color: #FFFFFF;
 }
 
-.content .flashcards .button--incorrect {
+.flashcards .button--incorrect {
     background-color: #FF3030;
 }
 
-.content .flashcards .button--effortful {
+.flashcards .button--effortful {
     background-color: #FF922E;
 }
 
-.content .flashcards .button--correct {
+.flashcards .button--correct {
     background-color: #2FBE34;
 }
 
-.content .flashcards ion-icon[name="play-outline"] {
+.flashcards ion-icon[name="play-outline"] {
     height: 36px;
     width: 32px;
 }
 
-.content .flashcards ion-icon[name="close-circle"] {
+.flashcards ion-icon[name="close-circle"] {
     color: #FF3030;
 }
 
-.content .flashcards ion-icon[name="help-circle"] {
+.flashcards ion-icon[name="help-circle"] {
     color: #FF922E;
 }
 
-.content .flashcards ion-icon[name="checkmark-circle"] {
+.flashcards ion-icon[name="checkmark-circle"] {
     color: #2FBE34;
 }
 
-.content .flashcards ion-icon[name="close-circle"],
-.content .flashcards ion-icon[name="help-circle"],
-.content .flashcards ion-icon[name="checkmark-circle"] {
+.flashcards ion-icon[name="close-circle"],
+.flashcards ion-icon[name="help-circle"],
+.flashcards ion-icon[name="checkmark-circle"] {
     font-size: 35px;
 }
 
-.content .flashcards .arrow {
-    height: 32px;
-    width: 42px;
-}
-
-.content footer {
+footer {
     position: fixed;
     bottom: 0;
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
