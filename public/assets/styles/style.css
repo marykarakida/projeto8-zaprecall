@@ -36,6 +36,20 @@ body {
     margin-bottom: 12px;
 }
 
+.menu select {
+    margin-top: 50px;
+    border-radius: 5px;
+    width: 246px;
+    height: 43px;
+    background-color: #FFFFFF;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #ADADAD;
+}
+
 .menu .button--begin {
     display: flex;
     justify-content: center;
@@ -58,6 +72,16 @@ body {
     line-height: 22px;
     text-align: center;
     color: #D70900;
+}
+
+.menu .button--not-ready {
+    border: none;
+    border-radius: 5px;
+    background-color: #E8E8E8;
+}
+
+.menu .button--not-ready span {
+    color: #C0C0C0;
 }
 
 .content {
@@ -274,11 +298,12 @@ footer {
 
 .result {
     justify-content: space-between;
-    height: 170px;
+    height: 240px;
 }
 
 .result-tittle {
     display: flex;
+    align-items: center;
 }
 
 .answers-status {
@@ -301,6 +326,28 @@ footer img {
     margin-right: 12px;
     height: 24px;
     width: 24px;
+}
+
+footer .button--restart {
+    margin: 0 6px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    height: 32px;
+    width: 100%;
+    max-width: 167px;
+    background-color: #FB6B6B;
+}
+
+footer .button--restart span {
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+    cursor: pointer;
 }
 
 @media (max-width: 676px) {
