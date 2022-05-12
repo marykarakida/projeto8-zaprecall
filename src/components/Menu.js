@@ -21,9 +21,8 @@ export default function Menu(props) {
     function chooseZap(event) {
         const zap = event.target.value;
 
-        setIsReady(true)
-        
         setChosenZap(zap)
+        setIsReady(true)
     }
 
     return (
@@ -38,9 +37,8 @@ export default function Menu(props) {
                 </select>
             }
 
-
             {isZapSelectionVisible &&
-                <input onChange={chooseZap} type="number" placeholder="Digite sua meta de zaps..." min={0} max={maxQuestions}></input>
+                <input onChange={chooseZap} type="number" placeholder="Digite sua meta de zaps..." min={1} max={maxQuestions}></input>
             }
 
             <div onClick={() => isReady ? setIsMenuVisible(false) : null} className={`button--begin ${!isReady && "button--not-ready"}`}><span>Iniciar Recall</span></div>

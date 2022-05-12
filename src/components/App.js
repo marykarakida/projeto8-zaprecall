@@ -92,7 +92,7 @@ const decks = [{
 export default function App() {
     const [isMenuVisiblie, setIsMenuVisible] = React.useState(true);
     const [chosenDeck, setChosenDeck] = React.useState({});
-    const [chosenZapp, setChosenZap] = React.useState(0);
+    const [chosenZapp, setChosenZap] = React.useState(1);
 
     function prepareDeck(index) {
         const questions = decks[index].deck;
