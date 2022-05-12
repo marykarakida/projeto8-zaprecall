@@ -1,32 +1,49 @@
 import React from "react";
 
 export default function Menu(props) {
-    const { decks, prepareDeck, toggleMenu } = props;
-    
-    const [isReady, setIsReady] = React.useState(false)
+    const { decks, prepareDeck, setChosenZap, setIsMenuVisible } = props;
+
+    const [isDeckSelectionVisible, setIsDeckSelectionVisible] = React.useState(true);
+    const [isZapSelectionVisible, setIsZapSelectionVisible] = React.useState(false);
+    const [isReady, setIsReady] = React.useState(false);
+    const [maxQuestions, setMaxQuestions] = React.useState(0)
 
     function chooseDeck(event) {
         const index = event.target.value;
 
-        if (index !== "") {
-            setIsReady(true);
-        } else {
-            setIsReady(false);
-            return;
-        }
+        setIsDeckSelectionVisible(false);
+        setIsZapSelectionVisible(true);
+        setMaxQuestions(decks[index].deck.length);
 
-        prepareDeck(index)
+        prepareDeck(index);
+    }
+
+    function chooseZap(event) {
+        const zap = event.target.value;
+
+        setIsReady(true)
+        
+        setChosenZap(zap)
     }
 
     return (
         <div className="menu">
             <img className="logo" src="./assets/images/logo.png" alt="Logo do Zap Recall" />
             <h1>ZapRecall</h1>
-            <select onChange={chooseDeck} name="cars">
-                <option value="">Escolha seu deck</option>
-                { decks.map((deck, index) => <option key={index} value={index}>{deck.title}</option> ) }
-            </select>
-            <div onClick={isReady ? toggleMenu : null } className={`button--begin ${!isReady && "button--not-ready"}`}><span>Iniciar Recall</span></div>
+
+            {isDeckSelectionVisible &&
+                <select onChange={chooseDeck} name="cars">
+                    <option value="">Escolha seu deck</option>
+                    { decks.map((deck, index) => <option key={index} value={index}>{deck.title}</option>) }
+                </select>
+            }
+
+
+            {isZapSelectionVisible &&
+                <input onChange={chooseZap} type="number" placeholder="Digite sua meta de zaps..." min={0} max={maxQuestions}></input>
+            }
+
+            <div onClick={() => isReady ? setIsMenuVisible(false) : null} className={`button--begin ${!isReady && "button--not-ready"}`}><span>Iniciar Recall</span></div>
         </div>
     )
 }

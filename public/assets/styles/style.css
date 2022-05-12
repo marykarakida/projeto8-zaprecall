@@ -36,6 +36,7 @@ body {
     margin-bottom: 12px;
 }
 
+.menu input,
 .menu select {
     margin-top: 50px;
     border-radius: 5px;
@@ -49,6 +50,14 @@ body {
     line-height: 16px;
     color: #ADADAD;
 }
+
+.menu input {
+    color: #FB6B6B;
+}
+
+::placeholder {
+    color: #ADADAD;
+  }
 
 .menu .button--begin {
     display: flex;

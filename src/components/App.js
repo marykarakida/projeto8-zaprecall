@@ -91,11 +91,8 @@ const decks = [{
 
 export default function App() {
     const [isMenuVisiblie, setIsMenuVisible] = React.useState(true);
-    const [chosenDeck, setChosenDeck] = React.useState({})
-
-    function toggleMenu() {
-        setIsMenuVisible(!isMenuVisiblie);
-    }
+    const [chosenDeck, setChosenDeck] = React.useState({});
+    const [chosenZapp, setChosenZap] = React.useState(0);
 
     function prepareDeck(index) {
         const questions = decks[index].deck;
@@ -106,9 +103,7 @@ export default function App() {
 
     return (
         <>
-            { isMenuVisiblie ? <Menu decks={decks} prepareDeck={prepareDeck} toggleMenu={toggleMenu} /> : <Content chosenDeck={chosenDeck} toggleMenu={toggleMenu} /> }
+            { isMenuVisiblie ? <Menu decks={decks} prepareDeck={prepareDeck} setChosenZap={setChosenZap} setIsMenuVisible={setIsMenuVisible} /> : <Content chosenDeck={chosenDeck} chosenZapp={chosenZapp} setIsMenuVisible={setIsMenuVisible} /> }
         </>
     )
 }
-
-// QUANDO FAZER O BONUS DE ESCOLHER O DECK, MANDAR OBJETO DO DECK PARA CA OU CRIAR UM ARRAY SEPARADO QUE TEM OS NOMES DE TODOS OS DECKS DISPONIVEIS?
