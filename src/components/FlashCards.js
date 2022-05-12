@@ -2,12 +2,13 @@ import React from "react";
 import Status from "./Status";
 
 export default function FlashCards(props) {
-    const { questions, setQuestions } = props;
+    const { questions, setQuestions, addAnswerStatus, answeredIncorrectly } = props;
 
-    const [visibleFlashcardIndex, setVisibleFlashcardIndex] = React.useState()
+    const [visibleFlashcardIndex, setVisibleFlashcardIndex] = React.useState();
+    const [isStatusUpdated, setIsStatusUpdated] = React.useState(true)
 
     function showStatement(index) {
-        if (index === visibleFlashcardIndex) {
+        if (index === visibleFlashcardIndex || !isStatusUpdated) {
             return;
         }
         const newQuestions = [...questions];
@@ -30,7 +31,8 @@ export default function FlashCards(props) {
         question.isStatementVisible = false;
         question.isAnswerVisible = true;
 
-        setQuestions(newQuestions)
+        setQuestions(newQuestions);
+        setIsStatusUpdated(false);
 
         event.stopPropagation();
     }
@@ -41,7 +43,13 @@ export default function FlashCards(props) {
         question.isAnswerVisible = false;
         question.status = status;
 
-        setQuestions(newQuestions)
+        if (status === "incorrect") {
+            answeredIncorrectly();
+        }
+
+        setQuestions(newQuestions);
+        addAnswerStatus(status);
+        setIsStatusUpdated(true);
 
         event.stopPropagation();
     }
@@ -59,10 +67,11 @@ function Flashcard(props) {
     const { question, index, showStatement, showAnswer, updateStatus } = props;
     const { statement, answer, isStatementVisible, isAnswerVisible, status } = question;
 
-    // DA PARA PEGAR O STATUS E MONTAR UM SWITCH OU CRIAR UMA CLASS NAME COM O NOME DO STATUS E SO ADICIONAR NO CLASSNAME DA DIV OU DO P
+    // DA PARA TRANSFORMAR AS VARIAVEIS BOOLEANOS EM VARIAVEIS DE ESTADO?
+    // TALVEZ CRIAR UMA VARIAVEL DE ESTADO QUE FICA TRUE SE UMA PERGUNTA AINDA ESTIVER NA FASE DE ANSWERVISBLE E TORNA FALSE QUANDO ATUALIZA STATUS
 
     return (
-        <li onClick={status ? null : () => showStatement(index)} className={`flashcard ${(isStatementVisible || isAnswerVisible) && "flashcard--open"}`}>
+        <li onClick={() => status ? null : showStatement(index)} className={`flashcard ${(isStatementVisible || isAnswerVisible) && "flashcard--open"}`}>
 
             {!isStatementVisible && !isAnswerVisible &&
                 <div className="question">

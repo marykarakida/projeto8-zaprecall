@@ -91,7 +91,7 @@ header h1 {
 }
 
 .flashcards {
-    margin: 110px 38px 80px;
+    margin: 110px 38px 120px;
     width: 100%;
 }
 
@@ -204,8 +204,8 @@ header h1 {
     font-family: 'Recursive';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
+    font-size: 22px;
+    line-height: 24px;
     color: #FFFFFF;
 }
 
@@ -233,33 +233,74 @@ header h1 {
 }
 
 .flashcards .question .incorrect,
-.flashcards ion-icon[name="close-circle"] {
+ion-icon[name="close-circle"] {
     color: #FF3030;
 }
 
 .flashcards .question .effortful,
-.flashcards ion-icon[name="help-circle"] {
+ion-icon[name="help-circle"] {
     color: #FF922E;
 }
 
 .flashcards .question .correct,
-.flashcards ion-icon[name="checkmark-circle"] {
+ion-icon[name="checkmark-circle"] {
     color: #2FBE34;
 }
 
-.flashcards ion-icon[name="close-circle"],
-.flashcards ion-icon[name="help-circle"],
-.flashcards ion-icon[name="checkmark-circle"] {
+ion-icon[name="close-circle"],
+ion-icon[name="help-circle"],
+ion-icon[name="checkmark-circle"] {
     font-size: 35px;
 }
 
 footer {
     position: fixed;
     bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
     height: 118px;
     width: 100%;
     background-color: #FFFFFF;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-size: 28px;
+    line-height: 32px;
+    color: #333333;
+}
+
+.result {
+    justify-content: space-between;
+    height: 170px;
+}
+
+.result-tittle {
+    display: flex;
+}
+
+.answers-status {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+footer h2 {
+    font-weight: 700;
+}
+
+footer p {
+    font-weight: 400;
+    text-align: center;
+}
+
+footer img {
+    margin-right: 12px;
+    height: 24px;
+    width: 24px;
 }
 
 @media (max-width: 676px) {
@@ -278,7 +319,7 @@ footer {
     }
 
     .flashcards {
-        margin: 50px 0 26px;
+        margin: 50px 0 106px;
     }
 
     .flashcards .flashcard--open {
@@ -316,7 +357,17 @@ footer {
         font-size: 23px;
     }
 
+    .flashcards .button span {
+        font-size: 12px;
+        line-height: 14px;
+    }
+
     footer {
         height: 70px;
+    }
+
+    footer {
+        font-size: 18px;
+        line-height: 22px;
     }
 }

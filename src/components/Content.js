@@ -69,8 +69,17 @@ export default function Content() {
     const deckEscolhido = [...decks[0].deck].sort(() => Math.random() - 0.5);
 
     const [questions, setQuestions] = React.useState(deckEscolhido);
+    const [answersStatus, setAnswersStatus] = React.useState([]);
+    const [hasIncorrect, setHasIncorrect] = React.useState(false);
+
     // CONTADOR DE PERGUNTAS CONCLUIDAS
     // VARIAVEL BOOLEANA QUE INDIA SE NO MINIMO UMA RESPOSTA FOI CONCLUIDA
+    function addAnswerStatus(status) {
+        setAnswersStatus([...answersStatus, status]);
+    }
+    function answeredIncorrectly() {
+        setHasIncorrect(true);
+    }
 
     return (
         <div className="content">
@@ -78,14 +87,42 @@ export default function Content() {
                 <img className="logo" src="./assets/images/logo.png" alt="Logo do Zap Recall" />
                 <h1>ZapRecall</h1>
             </header>
-            <FlashCards questions={questions} setQuestions={setQuestions} />
-            <Footer />
+            <FlashCards questions={questions} setQuestions={setQuestions} addAnswerStatus={addAnswerStatus} answeredIncorrectly={answeredIncorrectly} />
+            <Footer answersStatus={answersStatus} hasIncorrect={hasIncorrect} questions={questions} />
         </div>
     )
 }
 
-function Footer() {
+function Footer(props) {
+    const { answersStatus, questions, hasIncorrect } = props;
+    const isResultVisible = answersStatus.length === questions.length;
+
     return (
-        <footer></footer>
+        <footer className={isResultVisible ? "result" : undefined} >
+            {isResultVisible && hasIncorrect &&
+                <>
+                    <div className="result-tittle">
+                        <img src="./assets/images/sad.png" alt=""></img>
+                        <h2>Putz...</h2>
+                    </div>
+                    <p>Ainda faltam alguns... Mas não desanime!</p>
+                </>
+            }
+
+            {isResultVisible && !hasIncorrect &&
+                <>
+                    <div className="result-tittle">
+                        <img src="./assets/images/party.png" alt=""></img>
+                        <h2>Parabéns!</h2>
+                    </div>
+                    <p>Você não esqueceu de nenhum flashcard!</p>
+                </>
+            }
+
+            <p>{answersStatus.length} / {questions.length} CONCLUÍDOS </p>
+            <div className="answers-status">
+                {answersStatus.map((status, index) => <Status key={index} status={status} />)}
+            </div>
+        </footer>
     )
 }
