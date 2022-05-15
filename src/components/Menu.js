@@ -22,6 +22,11 @@ export default function Menu(props) {
     function chooseZap(event) {
         const zap = event.target.value;
 
+        if (typeof(Number(zap)) !== "number" || Number(zap) > maxQuestions || Number(zap) <= 0 ) {
+            setIsReady(false)
+            return
+        }
+
         setChosenZap(zap)
         setIsReady(true)
     }

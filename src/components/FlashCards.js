@@ -3,7 +3,7 @@ import Status from "./Status";
 import arrow from "../assets/images/setinha.png";
 
 export default function FlashCards(props) {
-    const { questions, setQuestions, addAnswerStatus, answeredIncorrectly } = props;
+    const { questions, setQuestions, addAnswerStatus } = props;
 
     const [visibleFlashcardIndex, setVisibleFlashcardIndex] = React.useState();
     const [isStatusUpdated, setIsStatusUpdated] = React.useState(true)
@@ -43,10 +43,6 @@ export default function FlashCards(props) {
         const question = newQuestions[index];
         question.isAnswerVisible = false;
         question.status = status;
-
-        if (status === "incorrect") {
-            answeredIncorrectly();
-        }
 
         setQuestions(newQuestions);
         addAnswerStatus(status);
