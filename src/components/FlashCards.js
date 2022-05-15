@@ -64,9 +64,6 @@ function Flashcard(props) {
     const { question, index, showStatement, showAnswer, updateStatus } = props;
     const { statement, answer, isStatementVisible, isAnswerVisible, status } = question;
 
-    // DA PARA TRANSFORMAR AS VARIAVEIS BOOLEANOS EM VARIAVEIS DE ESTADO?
-    // TALVEZ CRIAR UMA VARIAVEL DE ESTADO QUE FICA TRUE SE UMA PERGUNTA AINDA ESTIVER NA FASE DE ANSWERVISBLE E TORNA FALSE QUANDO ATUALIZA STATUS
-
     return (
         <li onClick={() => status ? null : showStatement(index)} className={`flashcard ${(isStatementVisible || isAnswerVisible) && "flashcard--open"}`}>
 

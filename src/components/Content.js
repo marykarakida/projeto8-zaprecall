@@ -32,7 +32,6 @@ function Footer(props) {
 
     const zapCounter = answersStatus.filter(status => status === "correct");
 
-    // MUDAR DEPOIS AKI
     const isResultVisible = answersStatus.length === questions.length;
     const isZapGoalReached = zapCounter.length >= chosenZapp;
 
