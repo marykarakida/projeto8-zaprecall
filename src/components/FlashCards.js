@@ -1,5 +1,6 @@
 import React from "react";
 import Status from "./Status";
+import arrow from "../assets/images/setinha.png";
 
 export default function FlashCards(props) {
     const { questions, setQuestions, addAnswerStatus, answeredIncorrectly } = props;
@@ -83,7 +84,7 @@ function Flashcard(props) {
             {isStatementVisible &&
                 <div className="statement">
                     <p>{statement}</p>
-                    <img onClick={(event) => showAnswer(event, index)} className="arrow" src="./assets/images/setinha.png" alt=""></img>
+                    <img onClick={(event) => showAnswer(event, index)} className="arrow" src={arrow} alt=""></img>
                 </div>
             }
 

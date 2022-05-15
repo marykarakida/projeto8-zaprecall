@@ -12,5 +12,3 @@ export default function IonIcon(props) {
             return null;
     }
 }
-
-// ACHO QUE SERIA BOM COLOCAR O PLAY OUTLINE SEPARADO, MAS VER DEPOIS ISSO

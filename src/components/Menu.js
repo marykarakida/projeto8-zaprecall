@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../assets/images/logo.png"
 
 export default function Menu(props) {
     const { decks, prepareDeck, setChosenZap, setIsMenuVisible } = props;
@@ -27,7 +28,7 @@ export default function Menu(props) {
 
     return (
         <div className="menu">
-            <img className="logo" src="./assets/images/logo.png" alt="Logo do Zap Recall" />
+            <img className="logo" src={logo} alt="Logo do Zap Recall" />
             <h1>ZapRecall</h1>
 
             {isDeckSelectionVisible &&

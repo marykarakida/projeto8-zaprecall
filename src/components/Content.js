@@ -1,11 +1,12 @@
 import React from "react";
 import FlashCards from "./FlashCards";
 import Status from "./Status";
+import logo from "../assets/images/logo.png";
+import partyEmoticon from "../assets/images/party.png";
+import sadEmoticon from "../assets/images/sad.png";
 
 export default function Content(props) {
     const {chosenDeck, chosenZapp, setIsMenuVisible} = props;
-    // DEPOIS TROCAR 0 PELA POSIÇÃO DO DECK ESCOLHIDO
-    // const deckEscolhido = [...decks[0].deck].sort(() => Math.random() - 0.5);
 
     const [questions, setQuestions] = React.useState(chosenDeck);
     const [answersStatus, setAnswersStatus] = React.useState([]);
@@ -21,7 +22,7 @@ export default function Content(props) {
     return (
         <div className="content">
             <header>
-                <img className="logo" src="./assets/images/logo.png" alt="Logo do Zap Recall" />
+                <img className="logo" src={logo} alt="Logo do Zap Recall" />
                 <h1>ZapRecall</h1>
             </header>
             <FlashCards questions={questions} setQuestions={setQuestions} addAnswerStatus={addAnswerStatus} answeredIncorrectly={answeredIncorrectly} />
@@ -35,15 +36,16 @@ function Footer(props) {
 
     const zapCounter = answersStatus.filter(status => status === "correct");
 
-    const isZapGoalReached = zapCounter.length >= chosenZapp;
+    // MUDAR DEPOIS AKI
     const isResultVisible = answersStatus.length === questions.length;
+    const isZapGoalReached = zapCounter.length >= chosenZapp;
 
     return (
         <footer className={isResultVisible ? "result" : undefined} >
             {isResultVisible &&
                 <>
                     <div className="result-tittle">
-                        {hasIncorrect || !isZapGoalReached ? <img src="./assets/images/sad.png" alt=""></img> : <img src="./assets/images/party.png" alt=""></img>}
+                        {hasIncorrect || !isZapGoalReached ? <img src={sadEmoticon} alt=""></img> : <img src={partyEmoticon} alt=""></img>}
                         {hasIncorrect || !isZapGoalReached ? <h2>Putz...</h2> : <h2>Parabéns!</h2> }
                     </div>
                     
